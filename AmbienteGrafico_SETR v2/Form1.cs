@@ -30,6 +30,7 @@ namespace AmbienteGrafico_SETR_v2
             btnSerial.Enabled = false;
             serialMonitor.Enabled = false;
             imgOn.Visible = false;
+            panelLuz.Enabled = false;
 
             List<int> baudRates = new List<int> { 4800, 9600, 19200, 38400, 57600, 115200, 230400 };
 
@@ -129,6 +130,7 @@ namespace AmbienteGrafico_SETR_v2
                     cmbCom.Enabled = false;
                     imgOff.Visible = false;
                     imgOn.Visible = true;
+                    panelLuz.Enabled = true;
 
                     btnConectar.Text = "Desconectar";
                 }
@@ -144,6 +146,7 @@ namespace AmbienteGrafico_SETR_v2
                     cmbCom.Enabled = true;
                     imgOff.Visible = true;
                     imgOn.Visible = false;
+                    panelLuz.Enabled = false;
 
                     if (btnSerial.Enabled == true)
                     {
@@ -207,31 +210,41 @@ namespace AmbienteGrafico_SETR_v2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (x == 0)
+            if (conectorSerial.IsOpen)
             {
-                x++;
-                btnLuz1.Image = AmbienteGrafico_SETR_v2.Properties.Resources.lightbulb_icon;
+                if (x == 0)
+                {
+                    conectorSerial.WriteLine("CMD#1,1");
+                    btnLuz1.Image = AmbienteGrafico_SETR_v2.Properties.Resources.lightbulb_icon;
+                    x++;
+                }
 
-            }
-            else
-            {
-                x--;
-                btnLuz1.Image = AmbienteGrafico_SETR_v2.Properties.Resources.lightbulb_off_icon;
+                else
+                {
+                    conectorSerial.WriteLine("CMD#1,0");
+                    btnLuz1.Image = AmbienteGrafico_SETR_v2.Properties.Resources.lightbulb_off_icon;
+                    x--;
+                }
             }
         }
 
         private void btnLuz2_Click(object sender, EventArgs e)
         {
-            if (x == 0)
+            if (conectorSerial.IsOpen)
             {
-                x++;
-                btnLuz2.Image = AmbienteGrafico_SETR_v2.Properties.Resources.lightbulb_icon;
+                if (x == 0)
+                {
+                    conectorSerial.WriteLine("CMD#2,1");
+                    btnLuz2.Image = AmbienteGrafico_SETR_v2.Properties.Resources.lightbulb_icon;
+                    x++;
 
-            }
-            else
-            {
-                x--;
-                btnLuz2.Image = AmbienteGrafico_SETR_v2.Properties.Resources.lightbulb_off_icon;
+                }
+                else
+                {
+                    conectorSerial.WriteLine("CMD#2,0");
+                    btnLuz2.Image = AmbienteGrafico_SETR_v2.Properties.Resources.lightbulb_off_icon;
+                    x--;
+                }
             }
         }
     }
