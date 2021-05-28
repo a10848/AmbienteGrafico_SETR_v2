@@ -92,5 +92,98 @@
   <ItemGroup>
     <None Include="Resources\lightbulb_off_icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\one.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\two.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\three.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\four.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\five.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\six.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seven.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\firefighter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\security.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\security %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drop %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fire %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\no.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light-bulb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light-bulb %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light-bulb %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sensor %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sensor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window_Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window_Open_B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window_Open_A.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

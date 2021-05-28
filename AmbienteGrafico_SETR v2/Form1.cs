@@ -18,6 +18,8 @@ namespace AmbienteGrafico_SETR_v2
         private bool dataSerial;
         private bool scrollAutomatico;
         int x = 0;
+        int y = 0;
+        int a = 0;
 
         public Form1()
         {
@@ -31,6 +33,16 @@ namespace AmbienteGrafico_SETR_v2
             serialMonitor.Enabled = false;
             imgOn.Visible = false;
             panelLuz.Enabled = false;
+            panelKeys.Enabled = false;
+            btnSOS.Visible = false;
+            imgUnlock.Visible = false;
+            panelSOS.Visible = false;
+            imgWaterOn.Visible = false;
+            imgFireOn.Visible = false;
+            btnExp.Enabled = false;
+            imgPir1On.Visible = false;
+            imgPir2On.Visible = false;
+
 
             List<int> baudRates = new List<int> { 4800, 9600, 19200, 38400, 57600, 115200, 230400 };
 
@@ -82,8 +94,148 @@ namespace AmbienteGrafico_SETR_v2
             else
             {
                 txtConsole.AppendText(valor);
-            }
 
+                /* Tratar dos dados recebidos */
+                string[] dados = valor.Split('#');
+
+                if (valor.IndexOf("LED#") != -1)
+                {
+                    string[] divide = dados[1].Split(',');
+                    int led = int.Parse(divide[0]);
+                    int ledV = int.Parse(divide[1]);
+
+                    if (led == 1)
+                    {
+                        if (ledV == 0)
+                        {
+                            btnLuz1.Image = AmbienteGrafico_SETR_v2.Properties.Resources.light_bulb__2_;
+                            x = 0;
+                        }
+                        else if (ledV == 1)
+                        {
+                            btnLuz1.Image = AmbienteGrafico_SETR_v2.Properties.Resources.light_bulb__3_;
+                            x = 1;
+                        }
+                    }
+                    else if (led == 2)
+                    {
+                        if (ledV == 0)
+                        {
+                            btnLuz2.Image = AmbienteGrafico_SETR_v2.Properties.Resources.light_bulb__2_;
+                            y = 0;
+                        }
+                        else if (ledV == 1)
+                        {
+                            btnLuz2.Image = AmbienteGrafico_SETR_v2.Properties.Resources.light_bulb__3_;
+                            y = 1;
+                        }
+                    }
+                }
+                else if (valor.IndexOf("WATER#") != -1)
+                {
+                    int water = int.Parse(dados[1]);
+
+                    if (water == 0)
+                    {
+                        imgWaterOff.Visible = true;
+                        imgWaterOn.Visible = false;
+                    }
+                    else if (water == 1)
+                    {
+                        imgWaterOff.Visible = false;
+                        imgWaterOn.Visible = true;
+                    }
+                }
+                else if (valor.IndexOf("ALARM#") != -1)
+                {
+                    int alarm = int.Parse(dados[1]);
+
+                    if (alarm == 0)
+                    {
+                        imgLock.Visible = true;
+                        imgUnlock.Visible = false;
+                        btnExp.Enabled = true;
+                    }
+                    else if (alarm == 1)
+                    {
+                        imgLock.Visible = false;
+                        imgUnlock.Visible = true;
+                        btnExp.Enabled = false;
+                    }
+                }
+                else if (valor.IndexOf("FIRE#") != -1)
+                {
+                    int fire = int.Parse(dados[1]);
+
+                    if (fire == 0)
+                    {
+                        imgFireOff.Visible = true;
+                        imgFireOn.Visible = false;
+                    }
+                    else if (fire == 1)
+                    {
+                        imgFireOff.Visible = false;
+                        imgFireOn.Visible = true;
+                    }
+                }
+                else if (valor.IndexOf("PIR#") != -1)
+                {
+                    string[] divide = dados[1].Split(',');
+                    int pir = int.Parse(divide[0]);
+                    int pirV = int.Parse(divide[1]);
+
+                    if (pir == 1)
+                    {
+                        if (pirV == 0)
+                        {
+                            imgPir1Off.Visible = true;
+                            imgPir1On.Visible = false;
+                        }
+                        else if (pirV == 1)
+                        {
+                            imgPir1Off.Visible = false;
+                            imgPir1On.Visible = true;
+                        }
+                    }
+                    else if (pir == 2)
+                    {
+                        if (pirV == 0)
+                        {
+                            imgPir2Off.Visible = true;
+                            imgPir2On.Visible = false;
+                        }
+                        else if (pirV == 1)
+                        {
+                            imgPir2Off.Visible = false;
+                            imgPir2On.Visible = true;
+                        }
+                    }
+                }
+                else if (valor.IndexOf("WINDOW#") != -1)
+                {
+                    string[] divide = dados[1].Split(',');
+                    int wA = int.Parse(divide[0]);
+                    int wB = int.Parse(divide[1]);
+
+                    if (wA == 1 && wB == 0)
+                    {
+
+                    }
+                    else if (wA == 0 && wB == 1)
+                    {
+
+                    }
+                    else if (wA == 1 && wB == 1)
+                    {
+
+                    }
+                    else if (wA == 0 && wB == 0)
+                    {
+
+                    }
+                }
+
+            }
             if (scrollAutomatico)
             {
                 txtConsole.SelectionStart = txtConsole.Text.Length;
@@ -131,6 +283,7 @@ namespace AmbienteGrafico_SETR_v2
                     imgOff.Visible = false;
                     imgOn.Visible = true;
                     panelLuz.Enabled = true;
+                    panelKeys.Enabled = true;
 
                     btnConectar.Text = "Desconectar";
                 }
@@ -147,6 +300,7 @@ namespace AmbienteGrafico_SETR_v2
                     imgOff.Visible = true;
                     imgOn.Visible = false;
                     panelLuz.Enabled = false;
+                    panelKeys.Enabled = false;
 
                     if (btnSerial.Enabled == true)
                     {
@@ -215,14 +369,14 @@ namespace AmbienteGrafico_SETR_v2
                 if (x == 0)
                 {
                     conectorSerial.WriteLine("CMD#1,1");
-                    btnLuz1.Image = AmbienteGrafico_SETR_v2.Properties.Resources.lightbulb_icon;
+                    btnLuz1.Image = AmbienteGrafico_SETR_v2.Properties.Resources.light_bulb__3_;
                     x++;
                 }
 
                 else
                 {
                     conectorSerial.WriteLine("CMD#1,0");
-                    btnLuz1.Image = AmbienteGrafico_SETR_v2.Properties.Resources.lightbulb_off_icon;
+                    btnLuz1.Image = AmbienteGrafico_SETR_v2.Properties.Resources.light_bulb__2_;
                     x--;
                 }
             }
@@ -232,20 +386,50 @@ namespace AmbienteGrafico_SETR_v2
         {
             if (conectorSerial.IsOpen)
             {
-                if (x == 0)
+                if (y == 0)
                 {
                     conectorSerial.WriteLine("CMD#2,1");
-                    btnLuz2.Image = AmbienteGrafico_SETR_v2.Properties.Resources.lightbulb_icon;
-                    x++;
+                    btnLuz2.Image = AmbienteGrafico_SETR_v2.Properties.Resources.light_bulb__3_;
+                    y++;
 
                 }
                 else
                 {
                     conectorSerial.WriteLine("CMD#2,0");
-                    btnLuz2.Image = AmbienteGrafico_SETR_v2.Properties.Resources.lightbulb_off_icon;
-                    x--;
+                    btnLuz2.Image = AmbienteGrafico_SETR_v2.Properties.Resources.light_bulb__2_;
+                    y--;
                 }
             }
+        }
+
+        private void btnNo_Click(object sender, EventArgs e)
+        {
+            panelSOS.Visible = false;
+            btnSOS.Visible = false;
+            a = 0;
+        }
+
+        private void btnExp_Click(object sender, EventArgs e)
+        {
+            if (a == 0)
+            {
+                btnSOS.Visible = true;
+                a = 1;
+            }
+            else
+            {
+                btnSOS.Visible = false;
+                a = 0;
+            }
+
+        }
+
+        private void btnSOS_Click(object sender, EventArgs e)
+        {
+            panelSOS.Visible = true;
+            btnSOS.Visible = false;
+            a = 0;
+
         }
     }
 }
