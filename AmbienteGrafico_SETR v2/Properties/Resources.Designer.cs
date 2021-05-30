@@ -63,6 +63,46 @@ namespace AmbienteGrafico_SETR_v2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AHD_smart_alarm_Malaysia_alarm_blinking {
+            get {
+                object obj = ResourceManager.GetObject("AHD-smart-alarm-Malaysia-alarm-blinking", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Alarm {
+            get {
+                object obj = ResourceManager.GetObject("Alarm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Alarm_blinking {
+            get {
+                object obj = ResourceManager.GetObject("Alarm-blinking", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap alarme_off {
+            get {
+                object obj = ResourceManager.GetObject("alarme_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap drop {
             get {
                 object obj = ResourceManager.GetObject("drop", resourceCulture);
@@ -86,6 +126,16 @@ namespace AmbienteGrafico_SETR_v2.Properties {
         internal static System.Drawing.Bitmap eight {
             get {
                 object obj = ResourceManager.GetObject("eight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Emergency_Light {
+            get {
+                object obj = ResourceManager.GetObject("Emergency_Light", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -246,6 +296,26 @@ namespace AmbienteGrafico_SETR_v2.Properties {
         internal static System.Drawing.Bitmap one {
             get {
                 object obj = ResourceManager.GetObject("one", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap porta_close {
+            get {
+                object obj = ResourceManager.GetObject("porta_close", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap porta_open {
+            get {
+                object obj = ResourceManager.GetObject("porta_open", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

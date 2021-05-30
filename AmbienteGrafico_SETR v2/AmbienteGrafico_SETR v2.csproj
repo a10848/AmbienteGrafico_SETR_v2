@@ -185,5 +185,26 @@
   <ItemGroup>
     <None Include="Resources\window_Open_A.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\porta_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\porta_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Emergency_Light.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alarme_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AHD-smart-alarm-Malaysia-alarm-blinking.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Alarm-blinking.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Alarm.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

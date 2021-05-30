@@ -127,8 +127,20 @@
   <data name="fire (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fire (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="alarme_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alarme_off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AHD-smart-alarm-Malaysia-alarm-blinking" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AHD-smart-alarm-Malaysia-alarm-blinking.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="window_Open_B" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\window_Open_B.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light-bulb (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\light-bulb (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="porta_close" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\porta_close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="window_close" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\window_close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,11 +163,14 @@
   <data name="light-bulb" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\light-bulb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="light-bulb (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\light-bulb (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="porta_open" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\porta_open.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ok.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="window_Open_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\window_Open_A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fire" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fire.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,8 +184,14 @@
   <data name="three" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\three.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Emergency_Light" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Emergency_Light.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="two" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\two.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Alarm-blinking" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Alarm-blinking.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="seven" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\seven.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,7 +241,7 @@
   <data name="lightbulb_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lightbulb_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="window_Open_A" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\window_Open_A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Alarm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Alarm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

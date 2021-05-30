@@ -17,9 +17,10 @@ namespace AmbienteGrafico_SETR_v2
         private SerialPort conectorSerial;
         private bool dataSerial;
         private bool scrollAutomatico;
-        int x = 0;
-        int y = 0;
-        int a = 0;
+        private int x = 0;
+        private int y = 0;
+        private int a = 0;
+        private bool alarme = false;
 
         public Form1()
         {
@@ -42,6 +43,14 @@ namespace AmbienteGrafico_SETR_v2
             btnExp.Enabled = false;
             imgPir1On.Visible = false;
             imgPir2On.Visible = false;
+            imgDoorOpen.Visible = false;
+            imgDoorClose.Visible = true;
+            imgWindowClose.Visible = true;
+            imgWindowOpen.Visible = false;
+            imgWindowA.Visible = false;
+            imgWindowB.Visible = false;
+            imgAlarmOn.Visible = false;
+            comboUsers.Text = "Utilizadores";
 
 
             List<int> baudRates = new List<int> { 4800, 9600, 19200, 38400, 57600, 115200, 230400 };
@@ -104,6 +113,11 @@ namespace AmbienteGrafico_SETR_v2
                     int led = int.Parse(divide[0]);
                     int ledV = int.Parse(divide[1]);
 
+                    if (panelLuz.Visible == false)
+                    {
+                        panelLuz.Visible = true;
+                    }
+
                     if (led == 1)
                     {
                         if (ledV == 0)
@@ -135,12 +149,12 @@ namespace AmbienteGrafico_SETR_v2
                 {
                     int water = int.Parse(dados[1]);
 
-                    if (water == 0)
+                    if (sensorAgua.Visible == false)
                     {
-                        imgWaterOff.Visible = true;
-                        imgWaterOn.Visible = false;
+                        sensorAgua.Visible = true;
                     }
-                    else if (water == 1)
+
+                    if (water == 1)
                     {
                         imgWaterOff.Visible = false;
                         imgWaterOn.Visible = true;
@@ -155,24 +169,30 @@ namespace AmbienteGrafico_SETR_v2
                         imgLock.Visible = true;
                         imgUnlock.Visible = false;
                         btnExp.Enabled = true;
+                        alarme = false;
                     }
                     else if (alarm == 1)
                     {
                         imgLock.Visible = false;
                         imgUnlock.Visible = true;
                         btnExp.Enabled = false;
+                        alarme = true;
+                        imgWaterOff.Visible = true;
+                        imgWaterOn.Visible = false;
+                        imgFireOn.Visible = false;
+                        imgFireOff.Visible = true;
                     }
                 }
                 else if (valor.IndexOf("FIRE#") != -1)
                 {
                     int fire = int.Parse(dados[1]);
 
-                    if (fire == 0)
+                    if (sensorFumo.Visible == false)
                     {
-                        imgFireOff.Visible = true;
-                        imgFireOn.Visible = false;
+                        sensorFumo.Visible = true;
                     }
-                    else if (fire == 1)
+
+                    if (fire == 1)
                     {
                         imgFireOff.Visible = false;
                         imgFireOn.Visible = true;
@@ -183,6 +203,15 @@ namespace AmbienteGrafico_SETR_v2
                     string[] divide = dados[1].Split(',');
                     int pir = int.Parse(divide[0]);
                     int pirV = int.Parse(divide[1]);
+
+                    if (sensorJanela.Visible == false)
+                    {
+                        sensorJanela.Visible = true;
+                    }
+                    if (sensorPorta.Visible == false)
+                    {
+                        sensorPorta.Visible = true;
+                    }
 
                     if (pir == 1)
                     {
@@ -217,24 +246,122 @@ namespace AmbienteGrafico_SETR_v2
                     int wA = int.Parse(divide[0]);
                     int wB = int.Parse(divide[1]);
 
+                    if (janela.Visible == false)
+                    {
+                        janela.Visible = true;
+                    }
+
                     if (wA == 1 && wB == 0)
                     {
-
+                        imgWindowA.Visible = true;
+                        imgWindowB.Visible = false;
+                        imgWindowOpen.Visible = false;
+                        imgWindowClose.Visible = false;
                     }
                     else if (wA == 0 && wB == 1)
                     {
-
+                        imgWindowA.Visible = false;
+                        imgWindowB.Visible = true;
+                        imgWindowOpen.Visible = false;
+                        imgWindowClose.Visible = false;
                     }
                     else if (wA == 1 && wB == 1)
                     {
-
+                        imgWindowA.Visible = false;
+                        imgWindowB.Visible = false;
+                        imgWindowOpen.Visible = true;
+                        imgWindowClose.Visible = false;
                     }
                     else if (wA == 0 && wB == 0)
                     {
-
+                        imgWindowA.Visible = false;
+                        imgWindowB.Visible = false;
+                        imgWindowOpen.Visible = false;
+                        imgWindowClose.Visible = true;
                     }
                 }
+                else if (valor.IndexOf("DOOR#") != -1)
+                {
+                    int door = int.Parse(dados[1]);
 
+                    if (porta.Visible == false)
+                    {
+                        porta.Visible = true;
+                    }
+
+                    if (door == 1)
+                    {
+                        imgDoorOpen.Visible = true;
+                        imgDoorClose.Visible = false;
+                    }
+                    else
+                    {
+                        imgDoorOpen.Visible = false;
+                        imgDoorClose.Visible = true;
+                    }
+                }
+                else if (valor.IndexOf("USER#") != -1)
+                {
+                    string user = dados[1].Remove(dados[1].Length - 1);
+
+                    if (panelKeys.Visible == false)
+                    {
+                        panelKeys.Visible = true;
+                    }
+
+                    comboUsers.Items.Add(user);
+                }
+                else if (valor.IndexOf("OUTBREAK#") != -1)
+                {
+                    int outbreak = int.Parse(dados[1]);
+
+                    if (sinalizacao.Visible == false)
+                    {
+                        sinalizacao.Visible = true;
+                    }
+
+                    if (outbreak == 1)
+                    {
+                        imgAlarmOn.Visible = true;
+                        imgAlarmOff.Visible = false;
+                    }
+                    else
+                    {
+                        imgAlarmOn.Visible = false;
+                        imgAlarmOff.Visible = true;
+                    }
+                }
+                else if (valor.IndexOf("READY#") != -1)
+                {
+                    int ready = int.Parse(dados[1]);
+
+                    if (ready == 0)
+                    {
+                        panelKeys.Enabled = false;
+                        sinalizacao.Enabled = false;
+                        panelLuz.Enabled = false;
+                        sensorAgua.Enabled = false;
+                        sensorFumo.Enabled = false;
+                        sensorJanela.Enabled = false;
+                        sensorPorta.Enabled = false;
+                        porta.Enabled = false;
+                        janela.Enabled = false;
+                    }
+                    else
+                    {
+                        panelKeys.Enabled = true;
+                        sinalizacao.Enabled = true;
+                        panelLuz.Enabled = true;
+                        sensorAgua.Enabled = true;
+                        sensorFumo.Enabled = true;
+                        sensorJanela.Enabled = true;
+                        sensorPorta.Enabled = true;
+                        porta.Enabled = true;
+                        janela.Enabled = true;
+                        imgOff.Visible = false;
+                        imgOn.Visible = true;
+                    }
+                }
             }
             if (scrollAutomatico)
             {
@@ -280,8 +407,6 @@ namespace AmbienteGrafico_SETR_v2
                     serialMonitor.Enabled = true;
                     cmbBaud.Enabled = false;
                     cmbCom.Enabled = false;
-                    imgOff.Visible = false;
-                    imgOn.Visible = true;
                     panelLuz.Enabled = true;
                     panelKeys.Enabled = true;
 
@@ -430,6 +555,95 @@ namespace AmbienteGrafico_SETR_v2
             btnSOS.Visible = false;
             a = 0;
 
+        }
+
+        private void comboUsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textUser.Text = comboUsers.Text;
+        }
+
+        private void btn1_Click(object sender, EventArgs e)
+        {
+            textBox.AppendText("1");
+        }
+
+        private void btn2_Click(object sender, EventArgs e)
+        {
+            textBox.AppendText("2");
+        }
+
+        private void btn3_Click(object sender, EventArgs e)
+        {
+            textBox.AppendText("3");
+        }
+
+        private void btn4_Click(object sender, EventArgs e)
+        {
+            textBox.AppendText("4");
+        }
+
+        private void btn5_Click(object sender, EventArgs e)
+        {
+            textBox.AppendText("5");
+        }
+
+        private void btn6_Click(object sender, EventArgs e)
+        {
+            textBox.AppendText("6");
+        }
+
+        private void btn7_Click(object sender, EventArgs e)
+        {
+            textBox.AppendText("7");
+        }
+
+        private void btn8_Click(object sender, EventArgs e)
+        {
+            textBox.AppendText("8");
+        }
+
+        private void btn9_Click(object sender, EventArgs e)
+        {
+            textBox.AppendText("9");
+        }
+
+        private void btn0_Click(object sender, EventArgs e)
+        {
+            textBox.AppendText("0");
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            if (conectorSerial.IsOpen)
+            {
+                if (textUser.Text != "?" && textBox.Text != "")
+                {
+                    conectorSerial.Write("CMD#5,");
+                    conectorSerial.WriteLine(textUser.Text);
+                    conectorSerial.Write("CMD#6,");
+                    conectorSerial.WriteLine(textBox.Text);
+
+                    comboUsers.Text = "Utilizadores";
+                    textBox.Text = "";
+                    textUser.Text = "?";
+                }
+            }
+        }
+
+        private void btnYes_Click(object sender, EventArgs e)
+        {
+            if (conectorSerial.IsOpen)
+            {
+                conectorSerial.WriteLine("CMD#5,SOS");
+                conectorSerial.WriteLine("CMD#6,5555");
+
+                panelSOS.Visible = false;
+                btnSOS.Visible = false;
+                a = 0;
+                comboUsers.Text = "Utilizadores";
+                textBox.Text = "";
+                textUser.Text = "?";
+            }
         }
     }
 }
